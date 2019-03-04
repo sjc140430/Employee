@@ -16,13 +16,17 @@ class Employee {
 	private @Id @GeneratedValue Long id;
 	private String firstName;
 	private String lastName;
-	private Date date; //sql.date
-	private String role;
+	private String date; //sql.date
+	private String phoneNumber;
+	private String address;
 	
 	protected Employee() {}
 	
-	Employee(String name, String role) {
+	Employee(String name, String lastName, String date, String phoneNumber, String address) {
 		this.firstName=name;
-		this.role=role;
+		this.lastName=lastName;
+		this.date=date;
+		this.phoneNumber=phoneNumber;
+		this.address=address;
 	}
 }

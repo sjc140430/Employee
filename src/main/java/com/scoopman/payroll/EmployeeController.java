@@ -1,6 +1,10 @@
 package com.scoopman.payroll;
 
+import java.sql.Date;
 import java.util.List;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,11 +46,14 @@ class EmployeeController {
 
 	@PutMapping("/employees/{id}")
 	Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
-
+		
 		return repository.findById(id)
 			.map(employee -> {
 				employee.setFirstName(newEmployee.getFirstName());
-				employee.setRole(newEmployee.getRole());
+				employee.setLastName(newEmployee.getLastName());
+				employee.setDate(newEmployee.getDate());
+				employee.setPhoneNumber(newEmployee.getPhoneNumber());
+				employee.setAddress(newEmployee.getAddress());
 				return repository.save(employee);
 			})
 			.orElseGet(() -> {
