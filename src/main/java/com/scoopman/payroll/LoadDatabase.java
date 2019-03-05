@@ -38,7 +38,7 @@ class LoadDatabase {
 		    
 		    while ((line = reader.readLine()) != null) {
 		      // ... parse the csv line into an object ...
-		      String data = reader.readLine();
+		      String data = line;
 		      String[] empData = data.split(",");
 		      repository.save(new Employee(empData[0], empData[1], empData[2], empData[3], empData[4]));
 		    }
