@@ -18,6 +18,7 @@ class LoadDatabase {
 		return args -> {
 			log.info("Preloading " + repository.save(new Employee("Steve", "Coopman", "02/23/1996", "9722134785", "1312 Thistledown Dr, Plano Tx 75093")));
 			//log.info("Preloading " + repository.save(new Employee("Frodo Baggins", "thief")));
+			System.out.println();
 		};
 	}
 }
