@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 class LoadDatabase {
 
-	@Value("classpath:/src/main/resources/resourcetracker.csv")
+	@Value("classpath:/resourcetracker.csv")
 	private Resource csvResource;
 	
 	@Bean
@@ -31,16 +31,16 @@ class LoadDatabase {
 		return args -> {
 			log.info("Preloading " + repository.save(new Employee("Steve", "Coopman", "02/23/1996", "9722134785", "1312 Thistledown Dr, Plano Tx 75093")));
 			//log.info("Preloading " + repository.save(new Employee("Frodo Baggins", "thief")));
-			System.out.println();
 			
 			BufferedReader reader = new BufferedReader(new InputStreamReader(csvResource.getInputStream()));
 		    String line = null;
 		    
 		    while ((line = reader.readLine()) != null) {
 		      // ... parse the csv line into an object ...
-		      String data = line;
-		      String[] empData = data.split(",");
-		      repository.save(new Employee(empData[0], empData[1], empData[2], empData[3], empData[4]));
+		      String[] empData = line.split(",");
+
+		      log.info("emp data: " + empData[0] + " " + empData[1] + " " + empData[2] + " " + empData[3] + " " + empData[4] + " " + empData[5]);
+		      repository.save(new Employee(empData[1], empData[2], empData[3], empData[4], empData[5]));//hack for non required fields.. should add another constructor..
 		    }
 		    
 		    reader.close();
