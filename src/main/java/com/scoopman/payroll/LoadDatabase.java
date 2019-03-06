@@ -66,7 +66,7 @@ class LoadDatabase {
 		    List<String> empStringList = (List<String>) iterator.next();
 		    String[] empData2 = (String[]) empStringList.toArray();
 		    Employee temp = new Employee(empData2[1], empData2[2], empData2[3], empData2[4], empData2[5], empData2[6], empData2[7], empData2[8], empData2[9], empData2[10], empData2[11]);
-		    
+		    repository.save(temp);
 		    log.info("empStringList size: " + empStringList.size());
 		    }
 		    
