@@ -51,10 +51,31 @@ class EmployeeController {
 			.map(employee -> {
 				employee.setFirstName(newEmployee.getFirstName());
 				employee.setLastName(newEmployee.getLastName());
-				employee.setDate(newEmployee.getDate());
+				employee.setLaptopType(newEmployee.getLaptopType());
+				employee.setPlannedDate(newEmployee.getPlannedDate());
+				employee.setActualDate(newEmployee.getActualDate());
+				employee.setDOB(newEmployee.getDOB());
+				employee.setWiproEmail(newEmployee.getWiproEmail());
+				employee.setWiproID(newEmployee.getWiproID());
+				employee.setAadhaar(newEmployee.getAadhaar());
 				employee.setPhoneNumber(newEmployee.getPhoneNumber());
 				employee.setAddress(newEmployee.getAddress());
+				
 				return repository.save(employee);
+				/*
+				 * 	private @Id @GeneratedValue Long id;
+	private String firstName;
+	private String lastName;
+	private String laptopType;
+	private String plannedDate;
+	private String actualDate;
+	private String DOB;
+	private String wiproEmail;
+	private String wiproID;
+	private String aadhaar;
+	private String phoneNumber;
+	private String address;
+				 */
 			})
 			.orElseGet(() -> {
 				newEmployee.setId(id);
