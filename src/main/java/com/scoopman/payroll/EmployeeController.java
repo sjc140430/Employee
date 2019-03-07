@@ -25,7 +25,7 @@ class EmployeeController {
 
 	// Aggregate root
 
-	@GetMapping("/employees")
+	@GetMapping(value = "/employees", produces = "application/json")
 	List<Employee> all() {
 		return repository.findAll();
 	}
